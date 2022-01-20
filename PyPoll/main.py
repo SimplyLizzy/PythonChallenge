@@ -39,6 +39,7 @@ with open(pypoll_csv) as csvfile:
             winner_votes = votes
 
     #Print List of Candidates // Percent of Votes // Total Votes // Winner
+    ###look into formatting
     print()
     print("Election Results")
     print("-------------------------")
@@ -70,11 +71,19 @@ with open(pypoll_csv) as csvfile:
 
 # * In addition, your final script should both print the analysis to the terminal and export a text file with the results.
 
-   #Candidate
-    #   -total votes:
-    # a = {
-    #     "Candidate":{"vots":0 ,"county" : ""},
-    # "Candidate2":3  
-    # }
+with open("Analysis/PyPoll_Analysis.txt", "w") as f:
 
-    #list_candidates = ["name", "count"]
+    f.write(" \n")
+    f.write("Election Results\n")
+    f.write("-------------------------\n")
+    f.write(f"Total Votes: {num_votes}\n")
+    f.write("-------------------------\n")
+
+    for key, value in vot_percent.items():
+        f.write(f"{key}: {value}% {vot_book[key]}\n")
+
+    f.write("-------------------------\n")
+    f.write(f"Winner: {win_candidate}\n")
+    f.write (" \n")
+
+    f.close()
